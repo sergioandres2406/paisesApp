@@ -1,0 +1,23 @@
+<h2>Búsquedas</h2>
+<hr>
+<ul class="list-group">
+  <!---Aqui utilizo el routerlink para decirle que hace click en alguno de los li,  los lleve a la página definida en app-routing.module.ts
+        - como  el router link esta en blanco, hay que poner la linea [routerLinkActiveOptions]="{exact: true}"  para que  no se ilumine cuando
+        se haya seleccionado otro router link-->
+  <li   routerLink=""
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        class="list-group-item">
+    Buscar por País
+  </li>
+  <li   routerLink="region"
+        routerLinkActive="active"
+        class="list-group-item">
+    Por Region
+  </li>
+  <li   routerLink="capital"
+        routerLinkActive="active"
+        class="list-group-item">
+    Por Capital
+  </li>
+</ul>
