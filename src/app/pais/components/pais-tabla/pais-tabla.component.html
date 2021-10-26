@@ -1,0 +1,27 @@
+<table *ngIf="!hayError && !noExiste && sinBuscar === false" class="table table-hover">
+  <thead>
+  <tr>
+    <th># </th>
+    <th>Bandera </th>
+    <th>Nombre </th>
+    <th>Población </th>
+    <th> </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let objpais of objPaises; let i = index">
+    <td>{{i+1}}</td>
+    <td>
+      <!-- Para que el tag img muestre la imagen de la bandera,  debo llamar el src con corchetes [src].
+       si lo pongo sin corchetes mostrará la ruta-->
+      <img class = "small-flag" [src]="objpais.flag" >
+
+    </td>
+    <td>{{objpais.name}}</td>
+    <td>{{objpais.population | number}}</td>
+    <td>
+      <a [routerLink]="['/pais',objpais.alpha2Code]" >ver mas...</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
