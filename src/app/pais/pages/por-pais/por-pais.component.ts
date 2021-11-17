@@ -18,6 +18,7 @@ export class PorPaisComponent {
   noExiste : boolean = false;
   sinBuscar: boolean = true;
   objPaises: Country [] = [];
+  namePage : string = 'pais';
 
   constructor( private paisService: PaisService) { }
 
@@ -27,9 +28,8 @@ export class PorPaisComponent {
     this.datoVacio = false;
     this.noExiste = false;
     this.termino = termino;
-
     /* Aqui utilizo la función buscarpais del servicio pais.service    con el valor que capture del parámetro termino
-    *  */
+    * para poder recibir  el objeto "observable"  que es el que devuelve la función buscarPais(), debo usar el subscribe  */
     this.paisService.buscarPais(this.termino)
       .subscribe( (resp) => {
         console.log('Entró resp normal en el suscribe');
@@ -53,6 +53,11 @@ export class PorPaisComponent {
         console.info(err);
         this.objPaises = [];
       });
+  }
+
+  sugerencias( termino: string) {
+    this.hayError = false;
+    /* TO DO Crear sugerencias */
   }
 
 

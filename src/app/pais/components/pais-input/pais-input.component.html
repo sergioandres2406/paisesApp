@@ -1,10 +1,13 @@
 <!-- ngSubmit es un comando de Angular para procesar la entrada del usuario en el formulario,
       o sea que captura la data del formulario.
-      ngModel es para llevar el valor del input   a la variable termino, que está en  pais-input.component.ts -->
+      ngModel es para llevar el valor del input   a la variable termino, que está en  pais-input.component.ts
+      (input) es un evento  de angular  que manda a llamar el método que se llama tecla_presionada,
+       cada que se  presione una tecla -->
 <form (ngSubmit)="buscar()" autocomplete="off">
   <input type="text"
          name="termino"
          [(ngModel)]="termino"
          class="form-control"
-         placeholder="Buscar país..."/>
+         (input)="teclaPresionada(  )"
+         placeholder="Buscar {{namePage}} ..."/>
 </form>

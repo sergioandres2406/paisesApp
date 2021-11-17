@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Country} from "../interfaces/pais.interface";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,8 +17,23 @@ export class PaisService {
   buscarPais(termino: string): Observable<Country[]> {
 
     //AQUI ARMAMOS LA URL PARA CONSUMIR EL SERVICIO DE BUSQUEDA POR NOMBRE DE PAIS
-    const url = `${this.apiUrl}/name/${termino}`
+    const url = `${this.apiUrl}/name/${termino}`;
     return this.http.get<Country[]>(url);
+  }
+
+  buscarPaiscapital(termino:string) : Observable<Country[]> {
+    //AQUI ARMAMOS LA URL PARA CONSUMIR EL SERVICIO DE BUSQUEDA POR NOMBRE DE CAPITAL
+    const url = `${this.apiUrl}/capital/${termino}`;
+    return this.http.get<Country[]>(url);
+  }
+
+  /*  nótese que esta función devuelve un solo Country,
+  no  un arreglo de countries como las otras funciones    */
+
+  getPaisPorcodigo(id:string) : Observable<Country> {
+    //AQUI ARMAMOS LA URL PARA CONSUMIR EL SERVICIO DE BUSQUEDA POR NOMBRE DE CAPITAL
+    const url = `${this.apiUrl}/alpha/${id}`;
+    return this.http.get<Country>(url);
   }
 
 }

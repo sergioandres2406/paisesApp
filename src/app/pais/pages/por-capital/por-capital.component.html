@@ -1,1 +1,37 @@
-<p>por-capital works!</p>
+<h2>Por capital</h2>
+<hr>
+<div class="row">
+  <div class="col">
+    <!-- Aqui estoy llamando el componente app-pais-input,  y estoy diciendo que consuma el metodo buscar
+          de por-pais-component.ts  pero con el valor del evento de onEnter, que devuelve un string
+          con lo que el input tenga -  en el componente de app-pais-input-->
+    <app-pais-input
+        (onEnter)="buscar($event)"
+        [namePage]="namePage"
+    ></app-pais-input>
+  </div>
+</div>
+
+
+<hr>
+
+<div *ngIf="hayError" class="alert alert-danger">
+  El campo está vacio {{termino}}
+</div>
+<div *ngIf="noExiste" class="alert alert-danger">
+  No hay coincidencias con  {{termino}}
+</div>
+
+<div *ngIf="objPaises.length > 0" class="row">
+  <div class="col">
+    <!-- las variables de la derecha hacen referencia
+     a las variables de por-capital.component.ts
+     y las de la izq son las variables de pais.tabla.component.ts-->
+    <app-pais-tabla [objPaises]="objPaises"
+                    [sinBuscar]="sinBuscar"
+                    [noExiste]="noExiste"
+                    [hayError]="hayError"
+                    [datoVacio]="datoVacio"
+    ></app-pais-tabla>
+  </div>
+</div>

@@ -7,7 +7,8 @@
           de por-pais-component.ts  pero con el valor del evento de onEnter, que devuelve un string
           con lo que el input tenga -  en el componente de app-pais-input-->
     <app-pais-input (onEnter)="buscar($event)"
-
+                    (onDebounce)="sugerencias($event)"
+                    [namePage]="namePage"
     ></app-pais-input>
   </div>
 </div>
@@ -21,15 +22,15 @@
   No hay coincidencias con  {{termino}}
 </div>
 
-  <div class="row">
-  <div class="col">
+  <div *ngIf="objPaises.length > 0" class="row">
+    <div class="col">
 
-  <app-pais-tabla [objPaises]="objPaises"
-                  [sinBuscar]="sinBuscar"
-                  [noExiste]="noExiste"
-                  [hayError]="hayError"
-                  [datoVacio]="datoVacio"
-            ></app-pais-tabla>
-  </div>
+      <app-pais-tabla [objPaises]="objPaises"
+                      [sinBuscar]="sinBuscar"
+                      [noExiste]="noExiste"
+                      [hayError]="hayError"
+                      [datoVacio]="datoVacio"
+      ></app-pais-tabla>
+    </div>
 </div>
 

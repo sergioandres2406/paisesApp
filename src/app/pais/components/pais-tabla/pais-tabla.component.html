@@ -17,7 +17,7 @@
       <img class = "small-flag" [src]="objpais.flag" >
 
     </td>
-    <td>{{objpais.name}}</td>
+    <td>{{objpais.capital}},{{objpais.name}}</td>
     <td>{{objpais.population | number}}</td>
     <td>
       <a [routerLink]="['/pais',objpais.alpha2Code]" >ver mas...</a>
