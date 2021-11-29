@@ -1,6 +1,7 @@
 import { Component,Input, OnInit } from '@angular/core';
 import {Country} from "../../interfaces/pais.interface";
 
+
 @Component({
   selector: 'app-pais-tabla',
   templateUrl: './pais-tabla.component.html',
@@ -10,6 +11,7 @@ import {Country} from "../../interfaces/pais.interface";
 export class PaisTablaComponent implements OnInit {
 
   constructor() { }
+
 
   @Input() objPaises: Country[] = [];
   @Input() hayError : boolean = false;

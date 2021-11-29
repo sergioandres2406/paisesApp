@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {Country} from "../interfaces/pais.interface";
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,10 +31,21 @@ export class PaisService {
   /*  nótese que esta función devuelve un solo Country,
   no  un arreglo de countries como las otras funciones    */
 
+
   getPaisPorcodigo(id:string) : Observable<Country> {
-    //AQUI ARMAMOS LA URL PARA CONSUMIR EL SERVICIO DE BUSQUEDA POR NOMBRE DE CAPITAL
+    //AQUI ARMAMOS LA URL PARA CONSUMIR EL SERVICIO DE BUSQUEDA POR CODIGO DEL PAIS
+    // PARA BUSCAR UN PAIS EN ESPECIFICO
     const url = `${this.apiUrl}/alpha/${id}`;
     return this.http.get<Country>(url);
+  }
+
+
+  buscarRegion(termino: string): Observable<Country[]> {
+
+    //AQUI ARMAMOS LA URL PARA CONSUMIR EL SERVICIO DE BUSQUEDA POR NOMBRE DE PAIS
+    const url = `${this.apiUrl}/regionalbloc/${termino}`;
+    console.log( url );
+    return this.http.get<Country[]>(url);
   }
 
 }

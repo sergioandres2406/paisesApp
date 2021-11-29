@@ -16,6 +16,7 @@ import { PaisInputComponent } from './components/pais-input/pais-input.component
 
 
 
+
 @NgModule({
   declarations: [
     PorCapitalComponent,
@@ -24,6 +25,7 @@ import { PaisInputComponent } from './components/pais-input/pais-input.component
     VerPaisComponent,
     PaisTablaComponent,
     PaisInputComponent,
+
 
   ],
   exports : [
